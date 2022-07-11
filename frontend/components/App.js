@@ -1,4 +1,6 @@
 import React from 'react'
+import TodoList from './TodoList'
+import Form from './Form'
 
 export default class App extends React.Component {
   constructor(){
@@ -7,7 +9,7 @@ export default class App extends React.Component {
       todos: [
         {
           name: 'Organize Garage',
-          id: 1528817077286, // could look different, you could use a timestamp to generate it
+          id: 1528817077286,
           completed: false
         },
         {
@@ -25,6 +27,7 @@ export default class App extends React.Component {
           id: 1528817063421,
           completed: false
         }
+        
       ]
     }
   }
@@ -33,19 +36,10 @@ export default class App extends React.Component {
     return (
       <div>
         <h1> TODO LIST </h1>
-        <ul>
-          {
-            todos.map(todo =>{
-              return (<li>{todo.name} {todo.completed ? <span>- Completed!</span> : <span></span>}</li>)
-            })
-          }
-        </ul>
+        <TodoList todos = {todos}/>
 
-        <form>
-          <input type='text' value='Enter a Todo'/>
-          <button>Add Todo</button>
-        </form>
-        <button> Clear Todos </button>
+        <Form />
+        <button>Clear</button>
       </div>
     )
   }
